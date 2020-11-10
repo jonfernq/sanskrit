@@ -21,5 +21,13 @@ https://www.cram.com/flashcards/sanskrit-vocabulary-from-digital-corpus-of-sansk
 
 https://www.cram.com/flashcards/vocabulary-from-the-yayati-story-in-the-mahabharata-11670326
 
+Various spaced repetition flashcard softcard software 
+is also available to load flashcards into on various platforms 
+from mobile phone to tablet to notebook: 
+
+https://en.wikipedia.org/wiki/Spaced_repetition
+https://en.wikipedia.org/wiki/Category:Spaced_repetition_software
+https://en.wikipedia.org/wiki/Anki_(software)
+
 
 
