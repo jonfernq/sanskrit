@@ -1,0 +1,38 @@
+
+
+Sanskrit flashcard creation using SQL: 
+
+
+- Lexical info extracted and formatted into CSV for flashcard: 
+
+SELECT SENTENCE_COMPOUND_WORD, '  ' || GRAMMAR || '  ' || WORD_CITATION ||  '  ' || meanings  from WordsAndMeanings WHERE TEXT_UNIT = 'W' AND SENTENCE_COMPOUND_WORD <> '_'
+
+
+-- create_view_w_dict_meanings.sql
+
+CREATE VIEW WordsAndMeanings AS
+SELECT meghaduta1.TEXT_UNIT,meghaduta1.WORK,meghaduta1.CHAPTER,meghaduta1.VERSE,meghaduta1.HALF_VERSE,meghaduta1.WORD,meghaduta1.SENTENCE_COMPOUND_WORD,meghaduta1.WORD_CITATION,sktdictdcs3.meanings,meghaduta1.POS,meghaduta1.GRAMMAR
+FROM meghaduta1
+INNER JOIN sktdictdcs3 ON meghaduta1.TEXT_UNIT='W' AND meghaduta1.WORD_NUMBER=sktdictdcs3.id
+
+
+- Select out info (or flashcards) for a range of stanzas 
+
+SELECT * from WordsAndMeanings WHERE cast(VERSE AS INTEGER) > 30 AND cast(VERSE AS INTEGER) < 50 ORDER BY VERSE
+
+
+- Filter out uninflected elements of compounds 
+
+SELECT * from WordsAndMeanings WHERE TEXT_UNIT = 'W' AND SENTENCE_COMPOUND_WORD <> '_'
+
+
+- Select all the elements needed for a flashcard 
+
+SELECT WORD_CITATION, meanings  from WordsAndMeanings WHERE TEXT_UNIT = 'W' AND SENTENCE_COMPOUND_WORD <> '_'
+
+
+- Select all the elements needed for a longer more involved flashcard 
+
+SELECT SENTENCE_COMPOUND_WORD, GRAMMAR, WORD_CITATION, meanings  from WordsAndMeanings WHERE TEXT_UNIT = 'W' AND SENTENCE_COMPOUND_WORD <> '_'
+
+
